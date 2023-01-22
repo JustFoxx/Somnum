@@ -1,34 +1,37 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "unethly",
   "version": "${version}",
 
-  "name": "Example Server Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Somnum",
+  "description": "Nightmarish Addon",
   "authors": [
-    "Me!"
+    "JustFoxx"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/JustFoxx/Unethly",
+    "sources": "https://github.com/JustFoxx/Unethly"
   },
 
   "license": "LGPL-3.0",
   "environment": "*",
   "entrypoints": {
-    "server": [
-      "io.github.ivymc.example.Main"
+    "main": [
+      "io.github.justfoxx.unethly.Main"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "unethly.mixins.json"
   ],
 
   "depends": {
     "fabricloader": ">=0.14.10",
     "fabric-api": "*",
-    "minecraft": "~1.19",
-    "java": ">=17"
+    "minecraft": "1.19-1.19.2",
+    "java": ">=17",
+    "ivycore": "*",
+    "origins": ">=1.7.1",
+    "pehkui": ">=3.6.3"
   },
   "suggests": {
   }

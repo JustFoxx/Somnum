@@ -15,6 +15,25 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+	maven {
+		name = "Ladysnake Libs"
+		url = 'https://ladysnake.jfrog.io/artifactory/mods'
+	}
+	maven {
+		url = 'https://maven.cafeteria.dev'
+		content {
+			includeGroup 'net.adriantodt.fabricmc'
+		}
+	}
+	maven {
+		url = "https://maven.jamieswhiteshirt.com/libs-release"
+		content {
+			includeGroup "com.jamieswhiteshirt"
+		}
+	}
+	maven { url =  "https://maven.shedaniel.me/" }
+	maven { url =  "https://maven.terraformersmc.com/" }
+	maven { url = "https://jitpack.io" }
 	maven { url = "https://api.modrinth.com/maven" }
 }
 
@@ -27,10 +46,11 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-	// Uncomment the following line to enable the deprecated Fabric API modules. 
-	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 	modImplementation "maven.modrinth:ivycore:${project.ivycore_version}"
-	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
+	modImplementation "com.github.eggohito:origins-fabric:${project.origins_version}"
+	modImplementation("com.github.virtuoel:pehkui:${pehkui_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 }
 
 processResources {
