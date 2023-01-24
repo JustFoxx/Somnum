@@ -1,0 +1,5 @@
+{
+    "type": "origins:simple",
+    "name": "Starlight attack",
+    "description": "When attacking, you give darkness effect (power based on moon phase) and chance of giving wither effect (power based on moon phase) but after attacking you start glowing, making you visible"
+}

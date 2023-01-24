@@ -1,0 +1,20 @@
+{
+    "powers": [
+        "unethly:darkness",
+        "unethly:poisonous",
+        "origins:velvet_paws",
+        "origins:scare_creepers",
+        "origins:fall_immunity",
+        "origins:climbing",
+        "origins:carnivore",
+        "unethly:light",
+        "unethly:big",
+        "unethly:starlight",
+        "unethly:miner"
+    ],
+    "icon": "minecraft:flint",
+    "order": 10,
+    "impact": 2,
+    "name": "Unethly",
+    "description": "Nightmarish feline"
+}

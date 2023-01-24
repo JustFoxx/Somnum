@@ -1,0 +1,5 @@
+{
+    "type": "origins:simple",
+    "name": "Poisonous fur",
+    "description": "When attacked you give poison effect (power based on moon phase) and any armour you have equip will slowly dissolve"
+}

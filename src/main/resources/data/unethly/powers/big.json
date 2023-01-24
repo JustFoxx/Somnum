@@ -1,0 +1,17 @@
+{
+    "type": "origins:attribute",
+    "modifiers": [
+        {
+            "attribute": "minecraft:generic.armor_toughness",
+            "operation": "addition",
+            "value": 10
+        },
+        {
+            "attribute": "minecraft:generic.armor",
+            "operation": "addition",
+            "value": 3
+        }
+    ],
+    "name": "Big cat",
+    "description": "You are bigger than player (by 60%) and have natural armour"
+}
