@@ -1,17 +1,11 @@
 {
     "type": "origins:attribute",
-    "modifiers": [
-        {
-            "attribute": "minecraft:generic.armor_toughness",
-            "operation": "addition",
-            "value": 10
-        },
-        {
-            "attribute": "minecraft:generic.armor",
-            "operation": "addition",
-            "value": 3
-        }
-    ],
+    "modifier": {
+        "name": "Max health increase",
+        "attribute": "minecraft:generic.max_health",
+        "value": 5,
+        "operation": "addition"
+    },
     "name": "Big cat",
-    "description": "You are bigger than player (by 60%) and have natural armour"
+    "description": "You are bigger than player (by 60%) and have more health"
 }
