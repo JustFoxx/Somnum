@@ -51,15 +51,7 @@
                     "resource": "unethly:light_resource"
                 },
                 {
-                    "type": "origins:and",
-                    "conditions": [
-                        {
-                            "type": "origins:exposed_to_sky"
-                        },
-                        {
-                            "type": "origins:daytime"
-                        }
-                    ],
+                    "type": "origins:exposed_to_sun",
                     "inverted": true
                 }
             ]
@@ -75,15 +67,7 @@
         "type": "origins:action_over_time",
         "interval": 2,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:exposed_to_sun"
-                },
-                {
-                    "type": "origins:daytime"
-                }
-            ]
+            "type": "origins:exposed_to_sun"
         },
         "entity_action": {
             "type": "origins:change_resource",
