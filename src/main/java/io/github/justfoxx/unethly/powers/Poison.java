@@ -25,14 +25,14 @@ public class Poison extends PowerWrapperImpl implements IEDamage, IETicking {
     public void onDamage(LivingEntity livingEntity, DamageSource damageSource) {
         LivingEntity attacker = (LivingEntity) damageSource.getAttacker();
         int power = 1;
-        int time = 10;
+        int time = 15;
 
         if (MoonPhases.getMoonPhase((ServerWorld) livingEntity.getWorld()) == MoonPhases.FULL) {
             power = 1;
-            time = 20;
+            time = 25;
         }
 
-        var effect = new StatusEffectInstance(StatusEffects.POISON, time*20, power, true, true, false);
+        var effect = new StatusEffectInstance(StatusEffects.POISON, time*10, power, true, true, false);
         attacker.addStatusEffect(effect);
     }
 

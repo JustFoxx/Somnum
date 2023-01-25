@@ -1,8 +1,8 @@
 {
     "type": "origins:modify_break_speed",
     "modifier": {
-        "operation": "multiply_base",
-        "value": 0.65
+        "operation": "multiply_total",
+        "value": -0.5
     },
     "name": "Bad miner paws",
     "description": "You are slower in mining"
