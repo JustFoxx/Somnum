@@ -47,6 +47,7 @@ public class LivingEntityMixin {
 
         if (!power.isActive((LivingEntity) (Object)this)) return;
         if (effect.getEffectType() == StatusEffects.POISON) cir.setReturnValue(false);
+        if (effect.getEffectType() == StatusEffects.DARKNESS) cir.setReturnValue(false);
     }
 
 
