@@ -13,6 +13,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.random.Random;
 
 public class Poison extends PowerWrapperImpl implements IEDamage, IETicking {
+    private int tick = 0;
+    private final Random random = Random.create();
     public Poison(Identifier identifier) {
         super(identifier);
     }
@@ -27,13 +29,9 @@ public class Poison extends PowerWrapperImpl implements IEDamage, IETicking {
             power = 1;
             time = 25;
         }
-
         var effect = new StatusEffectInstance(StatusEffects.POISON, time*10, power, true, true, false);
         attacker.addStatusEffect(effect);
     }
-
-    private int tick = 0;
-    private final Random random = Random.create();
 
     @Override
     public void tick(LivingEntity livingEntity) {
