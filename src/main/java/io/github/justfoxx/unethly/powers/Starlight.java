@@ -19,14 +19,12 @@ public class Starlight extends PowerWrapperImpl implements IEDamage {
 
     @Override
     public void onDamage(LivingEntity livingEntity, DamageSource damageSource) {
-        LivingEntity attacker = (LivingEntity) damageSource.getAttacker();
         int power = 0;
         int time = 15;
         int witherChance = 25;
-        Chance chance = new Chance(random.nextBetween(1, Chance.doubleToPercentInt(100)));
 
         if (!(livingEntity.getWorld() instanceof ServerWorld serverWorld)) return;
-
+        if (!(damageSource.getAttacker() instanceof LivingEntity attacker)) return;
         if (MoonPhases.getMoonPhase(serverWorld) == MoonPhases.FULL) {
             power = 1;
             time = 25;
@@ -35,7 +33,13 @@ public class Starlight extends PowerWrapperImpl implements IEDamage {
             witherChance = 0;
         }
 
+        addStatusEffects(livingEntity, attacker, witherChance, time, power);
+    }
+
+    private void addStatusEffects(LivingEntity livingEntity, LivingEntity attacker, double witherChance, int time, int power) {
+        var chance = new Chance(random.nextBetween(1, Chance.doubleToPercentInt(100)));
         var poisonEffect = new StatusEffectInstance(StatusEffects.POISON, time*10, power, true, true, false);
+
         livingEntity.addStatusEffect(poisonEffect);
 
         if (!attacker.isInvisible()) return;
