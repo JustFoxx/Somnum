@@ -133,6 +133,13 @@
             "compare_to": 0
         }
     },
+    "damage" : {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiple_total",
+            "value": 0.5
+        }
+    },
     "name": "Life in darkness",
     "description": "You are able to hide and see in darkness"
 }

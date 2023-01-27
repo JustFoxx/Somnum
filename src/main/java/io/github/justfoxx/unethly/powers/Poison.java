@@ -3,6 +3,7 @@ package io.github.justfoxx.unethly.powers;
 import io.github.justfoxx.unethly.helpers.MoonPhases;
 import io.github.justfoxx.unethly.interfaces.IEDamage;
 import io.github.justfoxx.unethly.interfaces.IETicking;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -35,14 +36,14 @@ public class Poison extends PowerWrapperImpl implements IEDamage, IETicking {
 
     @Override
     public void tick(LivingEntity livingEntity) {
+        if (!(livingEntity instanceof ServerPlayerEntity player)) return;
         tick++;
 
         if (tick % (random.nextInt(199)+1) != 0) return;
 
-        var armourItems = livingEntity.getArmorItems();
-        for (var itemStack : armourItems) {
-            if (livingEntity instanceof ServerPlayerEntity player) itemStack.damage(2, random, player);
-            else itemStack.damage(2, random, null);
-        }
+        var rnd = random.nextInt(4);
+        var armourItem = player.getInventory().getArmorStack(rnd);
+
+        armourItem.damage(1, player, (entity) -> entity.sendEquipmentBreakStatus(EquipmentSlot.fromTypeIndex(EquipmentSlot.Type.ARMOR, rnd)));
     }
 }

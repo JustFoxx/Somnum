@@ -1,5 +1,6 @@
 package io.github.justfoxx.unethly.mixins;
 
+import com.llamalad7.mixinextras.injector.ModifyReceiver;
 import io.github.apace100.apoli.component.PowerHolderComponentImpl;
 import io.github.apace100.apoli.power.Power;
 import io.github.justfoxx.unethly.Main;
@@ -9,29 +10,18 @@ import io.github.justfoxx.unethly.registry.RegistryTypes;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
-
 @Mixin(PowerHolderComponentImpl.class)
 public class PowerHolderComponentImplMixin {
-    @Redirect(method = "removePower", at = @At(value = "INVOKE", target = "Lio/github/apace100/apoli/power/Power;onRemoved()V"))
-    public void onRemovePower(Power powerInstance) {
+    @ModifyReceiver(method = "removePower", at = @At(value = "INVOKE", target = "Lio/github/apace100/apoli/power/Power;onRemoved()V"))
+    public Power onRemovePower(Power powerInstance) {
         Identifier powerId = powerInstance.getType().getIdentifier();
         IEPowerWrapper power = Main.registry.get(RegistryTypes.POWER, Main.g.id("size"));
 
-        if (!powerInstance.isActive()) {
-            powerInstance.onRemoved();
-            return;
-        }
-        if (!power.getId().equals(powerId)) {
-            powerInstance.onRemoved();
-            return;
-        }
-        if(!(power instanceof IERemoved powerRemoved)) {
-            powerInstance.onRemoved();
-            return;
-        }
+        if (!powerInstance.isActive()) return powerInstance;
+        if (!power.getId().equals(powerId)) return powerInstance;
+        if (!(power instanceof IERemoved powerRemoved)) return powerInstance;
 
         powerRemoved.onRemoved(powerInstance);
-        powerInstance.onRemoved();
+        return powerInstance;
     }
 }

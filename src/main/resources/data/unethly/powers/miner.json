@@ -2,7 +2,7 @@
     "type": "origins:modify_break_speed",
     "modifier": {
         "operation": "multiply_total",
-        "value": -0.5
+        "value": -0.3
     },
     "name": "Bad miner paws",
     "description": "You are slower in mining"

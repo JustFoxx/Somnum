@@ -1,5 +1,6 @@
 package io.github.justfoxx.unethly;
 
+import com.llamalad7.mixinextras.MixinExtrasBootstrap;
 import io.github.ivymc.ivycore.Global;
 import io.github.ivymc.ivycore.registry.RegistryBuilder;
 import io.github.justfoxx.unethly.registry.Powers;
@@ -11,6 +12,8 @@ public class Main implements ModInitializer {
     public static final Powers powers = new Powers();
     @Override
     public void onInitialize() {
+        MixinExtrasBootstrap.init();
+
         powers.init();
         g.LOGGER.info("Avatar?");
     }
