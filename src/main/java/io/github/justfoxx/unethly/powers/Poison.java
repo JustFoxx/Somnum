@@ -11,11 +11,12 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.random.Random;
+
+import java.util.Random;
 
 public class Poison extends PowerWrapperImpl implements IEDamage, IETicking {
     private int tick = 0;
-    private final Random random = Random.create();
+    private final Random random = new Random();
     public Poison(Identifier identifier) {
         super(identifier);
     }

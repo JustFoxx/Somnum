@@ -136,7 +136,7 @@
     "damage" : {
         "type": "origins:modify_damage_dealt",
         "modifier": {
-            "operation": "multiple_total",
+            "operation": "multiply_total",
             "value": 0.5
         }
     },

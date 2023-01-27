@@ -9,10 +9,11 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.random.Random;
+
+import java.util.Random;
 
 public class Starlight extends PowerWrapperImpl implements IEDamage {
-    private final Random random = Random.create();
+    private final Random random = new Random();
     public Starlight(Identifier identifier) {
         super(identifier);
     }
@@ -37,7 +38,7 @@ public class Starlight extends PowerWrapperImpl implements IEDamage {
     }
 
     private void addStatusEffects(LivingEntity livingEntity, LivingEntity attacker, double witherChance, int time, int power) {
-        var chance = new Chance(random.nextBetween(1, Chance.doubleToPercentInt(100)));
+        var chance = new Chance(random.nextInt(Chance.doubleToPercentInt(100)-1)+1);
         var poisonEffect = new StatusEffectInstance(StatusEffects.POISON, time*10, power, true, true, false);
 
         livingEntity.addStatusEffect(poisonEffect);

@@ -43,7 +43,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	implementation("com.github.LlamaLad7:MixinExtras:0.1.1")
 	modImplementation "maven.modrinth:ivycore:${project.ivycore_version}"
-	modImplementation "com.github.eggohito:origins-fabric:${project.origins_version}"
+	modImplementation "com.github.apace100:origins-fabric:${project.origins_version}"
 	modImplementation("com.github.virtuoel:pehkui:${pehkui_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
